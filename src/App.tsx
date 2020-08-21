@@ -1,6 +1,4 @@
 import * as React from "react";
-export interface HelloWorldProps {
-  userName: string;
-  lang: string;
-}
-export const App = () => <h1>Hi from React!! Welcome!</h1>;
+import { Routes } from "./Routes";
+
+export const App = () => <Routes />;

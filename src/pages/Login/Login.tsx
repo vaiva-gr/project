@@ -24,13 +24,11 @@ export const LoginPage = ({ loginUser }: LoginPageProps) => {
       event.preventDefault();
       loginUser &&
         loginUser({ username: values.username, password: values.password });
-      console.log(values.username);
-      console.log(values.password);
     },
   });
   return (
     <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="username">First Name</label>
+      <label htmlFor="username">Username</label>
       <input
         id="username"
         name="username"

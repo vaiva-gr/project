@@ -4,7 +4,7 @@ import { UserActionTypes } from "./types";
 
 export const loginUser = (data: { username: string; password: string }) =>
   action(UserActionTypes.LOGIN_REQUEST, data);
-export const loginSuccess = (data: { accessToken: string }) =>
-  action(UserActionTypes.LOGIN_SUCCESS, data);
+export const loginSuccess = (token: any) =>
+  action(UserActionTypes.LOGIN_SUCCESS, token);
 export const loginFail = (error: Error) =>
   action(UserActionTypes.LOGIN_FAIL, error);

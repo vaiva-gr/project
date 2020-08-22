@@ -18,17 +18,17 @@ export const reducer: Reducer<State> = (
 ) => {
   switch (action.type) {
     case UserActionTypes.LOGIN_SUCCESS: {
-      console.log("action.payload");
-      console.log(action.payload);
-      console.log("action.payload");
       return {
         isLoggedIn: true,
         token: action.payload.token,
       };
     }
     case UserActionTypes.LOGIN_FAIL: {
-      console.log("action.payload er");
       return { isLoggedIn: false, error: action.payload };
+    }
+    case UserActionTypes.LOGOUT_REQUEST: {
+      console.log("logging put");
+      return { isLoggedIn: false, token: "" };
     }
     default: {
       return state;

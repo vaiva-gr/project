@@ -4,10 +4,11 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 
 // import { LoginPage } from "./pages/Login/Login";
-import { Home } from "./pages/Home/Home";
+// import { HomePage } from "./pages/Home/Home";
 import { ErrorPage } from "./pages/404/ErrorPage";
 import { selectIsUserLoggedIn } from "./store/User/selector";
 import { LoginPageContainer as LoginPage } from "./containers/LoginPage";
+import { HomePageContainer as HomePage } from "./containers/HomePage";
 
 interface RoutesProps {
   isUserLoggedIn?: boolean;
@@ -21,7 +22,7 @@ export const Routes = ({ isUserLoggedIn }: RoutesProps) => {
         <Router>
           <Switch>
             {/* <Route exact path="/" component={LoginPage} /> */}
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={HomePage} />
             <Route path="/404" component={ErrorPage} />
           </Switch>
         </Router>

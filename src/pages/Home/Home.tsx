@@ -1,21 +1,13 @@
 import * as React from "react";
 const axios = require("axios");
 
-export const Home = () => {
+interface HomePageProps {
+  logoutUser: () => void;
+}
+
+export const HomePage = ({ logoutUser }: HomePageProps) => {
   const handleClick = () => {
-    axios
-      .post("https://playground.tesonet.lt/v1/tokens", {
-        username: "tesonet",
-        password: "partyanimal",
-      })
-      .then(function (response: any) {
-        // handle success
-        console.log(response);
-      })
-      .catch(function (error: any) {
-        // handle error
-        console.log("error" + error);
-      });
+    logoutUser();
   };
   const handleClickGet = () => {
     const AuthStr = "Bearer ".concat("f9731b590611a5a9377fbd02f247fcdf");
@@ -32,8 +24,8 @@ export const Home = () => {
   };
   return (
     <>
-      <button onClick={handleClick}>Login</button>
       <button onClick={handleClickGet}>Get</button>
+      <button onClick={handleClick}>LOGOUT</button>
     </>
   );
 };

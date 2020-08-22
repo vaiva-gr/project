@@ -39,22 +39,22 @@ function* loginUserSaga({ payload }: AnyAction) {
     console.log("err");
     yield put(loginFail(e));
   }
-
-  // axios
-  //   .post("https://playground.tesonet.lt/v1/tokens", payload)
-  //   .then(function (response: any) {
-  //     // handle success
-  //     put(loginSuccess());
-  //     localStorage.setItem("token", response.data.token);
-  //     console.log(response.data.token);
-  //   })
-  //   .catch(function (error: any) {
-  //     // handle error
-  //     put(loginFail(error));
-  //     console.log("error" + error);
-  //   });
 }
 
 export function* UserSaga() {
   yield takeLatest(UserActionTypes.LOGIN_REQUEST, loginUserSaga);
 }
+
+// axios
+//   .post("https://playground.tesonet.lt/v1/tokens", payload)
+//   .then(function (response: any) {
+//     // handle success
+//     put(loginSuccess());
+//     localStorage.setItem("token", response.data.token);
+//     console.log(response.data.token);
+//   })
+//   .catch(function (error: any) {
+//     // handle error
+//     put(loginFail(error));
+//     console.log("error" + error);
+//   });

@@ -6,7 +6,6 @@ import { State } from "./reducer";
 export const selectUserData: Selector<RootState, State> = (
   state: RootState
 ) => {
-  console.log(state);
   return state.User;
 };
 

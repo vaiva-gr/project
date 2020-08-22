@@ -7,46 +7,42 @@ const axios = require("axios");
 interface HomePageProps {
   logoutUser: () => void;
   servers: ServersType[];
-  fetchServers?: () => void;
+  fetchServers: () => void;
+  deleteServers: () => void;
 }
 
 export const HomePage = ({
   logoutUser,
   servers,
   fetchServers,
+  deleteServers,
 }: HomePageProps) => {
-  const [serverss, setServers] = React.useState([]);
+  // const [serversList, setServersList] = React.useState(servers);
 
-  React.useEffect(() => {
+  const handleClickGet = () => {
     fetchServers && fetchServers();
-    setServers(servers);
-  }, []);
+    // setServersList(servers);
+  };
+
+  const handleClickDelete = () => {
+    deleteServers();
+    // setServersList([]);
+  };
 
   const handleClick = () => {
     logoutUser();
   };
-  // const handleClickGet = () => {
-  //   const AuthStr = "Bearer ".concat("f9731b590611a5a9377fbd02f247fcdf");
-  //   axios
-  //     .get("https://playground.tesonet.lt/v1/servers", {
-  //       headers: { Authorization: AuthStr },
-  //     })
-  //     .then((response: any) => {
-  //       setServers(response.data);
-  //     })
-  //     .catch((error: any) => {
-  //       console.log("error " + error);
-  //     });
-  // };
   console.log(servers);
+  console.log(Object.keys(servers).length === 0);
   return (
     <>
-      {/* <button onClick={handleClickGet}>Get</button> */}
-      <button onClick={() => {}}>Destroyy</button>
+      <button onClick={handleClickGet}>Get</button>
+      <button onClick={handleClickDelete}>Destroyy</button>
       <button onClick={handleClick}>LOGOUT</button>
-      {serverss.map((item): any => (
-        <div key={item.name + item.distance}>{item.name}</div>
-      ))}
+      {Object.keys(servers).length !== 0 &&
+        servers.map((item): any => (
+          <div key={item.name + item.distance}>{item.name}</div>
+        ))}
     </>
   );
 };

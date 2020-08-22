@@ -27,7 +27,6 @@ export const reducer: Reducer<State> = (
       return { isLoggedIn: false, error: action.payload };
     }
     case UserActionTypes.LOGOUT_REQUEST: {
-      console.log("logging put");
       return { isLoggedIn: false, token: "" };
     }
     default: {

@@ -15,6 +15,9 @@ export const reducer: Reducer = (state = [], action) => {
     case ServersActionTypes.FETCH_SERVERS_ERROR:
       console.log("no");
       return action.payload;
+    case ServersActionTypes.DELETE_SERVERS: {
+      return {};
+    }
     default:
       return state;
   }

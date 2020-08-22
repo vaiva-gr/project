@@ -13,9 +13,6 @@ function* fetchServersSaga() {
       `https://playground.tesonet.lt/v1/servers`,
       { headers: { Authorization: AuthStr } }
     );
-    console.log("------");
-    console.log(data);
-    console.log("------");
     yield put(fetchServersSuccess(data));
   } catch (e) {
     yield put(fetchServersError(e));

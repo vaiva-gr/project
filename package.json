@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open",
-    "build": "webpack"
+    "build": "webpack",
+    "postinstall": "rm -rf node_modules/@types/react-native"
   },
   "keywords": [],
   "author": "",
@@ -14,12 +15,13 @@
   "devDependencies": {
     "@types/react": "^16.9.46",
     "@types/react-dom": "^16.9.8",
+    "@types/styled-components": "^4.1.8",
     "awesome-typescript-loader": "^5.2.1",
     "css-loader": "^4.2.1",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.10.0",
     "source-map-loader": "^1.0.2",
-    "typescript": "^4.0.2",
+    "typescript": "^3.7.2",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
@@ -27,9 +29,11 @@
   "dependencies": {
     "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.5",
+    "@types/styled-system": "^4.2.1",
     "@types/yup": "^0.29.6",
     "axios": "^0.20.0",
     "formik": "^2.1.5",
+    "ramda": "^0.27.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
@@ -40,6 +44,7 @@
     "redux-saga-effects": "^1.1.0",
     "reselect": "^4.0.0",
     "styled-components": "^5.1.1",
+    "styled-system": "^4.2.4",
     "typesafe-actions": "^5.1.0",
     "yup": "^0.29.3"
   }

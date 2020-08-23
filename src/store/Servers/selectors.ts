@@ -1,4 +1,5 @@
-import { Selector } from "reselect";
+import { createSelector, Selector } from "reselect";
+
 import { RootState } from "../reducers";
 import { State } from "./reducer";
 

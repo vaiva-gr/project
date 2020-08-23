@@ -3,4 +3,5 @@ export enum ServersActionTypes {
   FETCH_SERVERS_SUCCESS = "@@servers/FETCH_SERVERS_SUCCESS",
   FETCH_SERVERS_ERROR = "@@servers/FETCH_SERVERS_ERROR",
   DELETE_SERVERS = "@@servers/DELETE_SERVERS",
+  UPDATE_SERVERS = "@@servers/UPDATE_SERVERS",
 }

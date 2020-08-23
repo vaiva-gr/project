@@ -1,14 +1,14 @@
 import * as React from "react";
-// import { sortBy, prop, reverse } from "ramda";
 
-import { ServersType } from "../../types/Servers";
+import { ServersArray, ServersType } from "../../types/Servers";
 import { Layout } from "../../components/Layout/Layout";
 
 interface HomePageProps {
   logoutUser: () => void;
-  servers: ServersType[];
+  servers: ServersArray;
   fetchServers: () => void;
   deleteServers: () => void;
+  updateServers: (servers: ServersType[], type: string) => void;
 }
 
 export const HomePage = ({
@@ -16,48 +16,41 @@ export const HomePage = ({
   servers,
   fetchServers,
   deleteServers,
+  updateServers,
 }: HomePageProps) => {
-  // const [serversList, setServersList] = React.useState(servers);
-
   const handleClickGet = () => {
     fetchServers && fetchServers();
-    // setServersList(servers);
   };
 
   const handleClickDelete = () => {
     deleteServers();
-    // setServersList([]);
   };
 
   const handleClick = () => {
     logoutUser();
   };
 
-  // const sortRows = (initialRows: any, sortColumn: any, sortDirection: any) => (
-  //   rows
-  // ) => {
-  //   const comparer = (a, b) => {
-  //     if (sortDirection === "ASC") {
-  //       return a[sortColumn] > b[sortColumn] ? 1 : -1;
-  //     } else if (sortDirection === "DESC") {
-  //       return a[sortColumn] < b[sortColumn] ? 1 : -1;
-  //     }
-  //   };
-  //   return sortDirection === "NONE" ? initialRows : [...rows].sort(comparer);
-  // };
-
-  // const sortByFullName = sortBy(prop('fullName'));
-  // R.sort(diff, [4,2,7,5]);
-  console.log(servers);
-  console.log(Object.keys(servers).length === 0);
   return (
     <>
       <button onClick={handleClickGet}>Get</button>
       <button onClick={handleClickDelete}>Destroyy</button>
       <button onClick={handleClick}>LOGOUT</button>
+      <button onClick={() => updateServers(servers.servers, "AscName")}>
+        Asc Name
+      </button>
+      <button onClick={() => updateServers(servers.servers, "DescName")}>
+        Desc Name
+      </button>
+      <button onClick={() => updateServers(servers.servers, "AscDistance")}>
+        Asc Distance
+      </button>
+      <button onClick={() => updateServers(servers.servers, "DescDistance")}>
+        Desc Distance
+      </button>
 
-      {Object.keys(servers).length !== 0 &&
-        servers.map((item): any => (
+      {servers.servers &&
+        Object.keys(servers.servers).length !== 0 &&
+        servers.servers.map((item): any => (
           <div key={item.name + item.distance}>
             {item.name}
             {"    "}

@@ -13,12 +13,10 @@ function* loginUserSaga({ payload }: AnyAction) {
       payload
     );
     if (data) {
-      console.log(data);
       yield put(loginSuccess(data));
-      localStorage.setItem("token", data);
+      localStorage.setItem("token", data.token);
     }
   } catch (e) {
-    console.log("err");
     yield put(loginFail(e));
   }
 }

@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
+import { colors } from "../../theme/colors";
 import { device } from "../../device";
 
 interface BoxProps {
@@ -9,7 +10,7 @@ interface BoxProps {
 }
 
 const BoxWrapper = styled.div<Partial<BoxProps>>`
-  background-color: white;
+  background-color: ${colors.white};
   padding: 60px 40px;
   border-radius: 5px;
   box-shadow: 0px 0px 76px 14px rgba(0, 0, 0, 0.4);

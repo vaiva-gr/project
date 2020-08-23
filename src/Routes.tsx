@@ -15,13 +15,11 @@ interface RoutesProps {
 }
 
 export const Routes = ({ isUserLoggedIn }: RoutesProps) => {
-  console.log(isUserLoggedIn);
   return (
     <>
       {isUserLoggedIn ? (
         <Router>
           <Switch>
-            {/* <Route exact path="/" component={LoginPage} /> */}
             <Route exact path="/" component={HomePage} />
             <Route path="/404" component={ErrorPage} />
           </Switch>

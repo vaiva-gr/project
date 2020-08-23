@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import { space } from "styled-system";
 
+import { colors } from "../../theme/colors";
 import { StyledWrapperProps } from "../Wrapper/StyledWrapper";
 
 interface ButtonProps extends StyledWrapperProps {
@@ -13,9 +14,9 @@ interface ButtonProps extends StyledWrapperProps {
 
 const ButtonWrapper = styled.button<Partial<ButtonProps>>`
   width: 100%;
-  background-color: rgb(57, 69, 122);
+  background-color: ${colors.darkBlue};
   height: 40px;
-  color: white;
+  color: ${colors.white};
   border: none;
   width: 100%;
   border-radius: 4px;
@@ -24,7 +25,7 @@ const ButtonWrapper = styled.button<Partial<ButtonProps>>`
   text-transform: uppercase;
   width: ${({ width }: Partial<ButtonProps>) => (width ? width : "100%")};
   :hover {
-    background: rgb(94, 109, 172);
+    background: ${colors.lightBlue};
   }
   ${space}
 `;

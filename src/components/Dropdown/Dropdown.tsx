@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
+import { colors } from "../../theme/colors";
 import { ArrowDownIcon } from "../../assets/icons";
 
 interface DropdownProps {
@@ -17,10 +18,10 @@ const DropDownContainer = styled("div")`
 const DropDownList = styled("ul")`
   padding: 0;
   width: 150px;
-  background: rgb(57, 69, 122);
+  background-color: ${colors.darkBlue};
   border-radius: 4px;
   box-sizing: border-box;
-  color: white;
+  color: ${colors.white};
   position: absolute;
   margin: 10px 0 0 -50px;
 `;
@@ -31,7 +32,7 @@ const ListItem = styled("li")`
   border-radius: 4px;
   cursor: pointer;
   :hover {
-    background: rgb(94, 109, 172);
+    background-color: ${colors.lightBlue};
   }
 `;
 

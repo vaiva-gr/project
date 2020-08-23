@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 
 import { ServersArray, ServersType } from "../../types/Servers";
-import { H1, P } from "../Headers/Headers";
+import { H1, P } from "../Text/Text";
 import { Box } from "../Box/Box";
 import { Button } from "../Button/Button";
 import { Dropdown } from "../Dropdown/Dropdown";

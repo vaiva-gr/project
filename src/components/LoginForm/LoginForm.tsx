@@ -3,10 +3,10 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import styled from "styled-components";
 
-import { device } from "../../device";
 import { Button } from "../Button/Button";
-import { H1 } from "../Headers/Headers";
+import { H1 } from "../Text/Text";
 import { Box } from "../Box/Box";
+import { ErrorPopup } from "../ErrorPopup/ErrorPopup";
 
 interface LoginFormProps {
   loginUser?: (userData: { username: string; password: string }) => void;
@@ -27,6 +27,7 @@ const Input = styled.input`
   margin-top: 10px;
   border: solid #a6a6a6 1px;
   border-radius: 4px;
+  padding-left: 10px;
 `;
 
 const Error = styled.div`
@@ -37,6 +38,9 @@ const Error = styled.div`
 `;
 
 export const LoginForm = ({ loginUser }: LoginFormProps) => {
+  const [showError, setShowError] = React.useState(true);
+  const handleErrorPopup = () => setShowError(!showError);
+
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -51,7 +55,6 @@ export const LoginForm = ({ loginUser }: LoginFormProps) => {
         .required("Required"),
     }),
     onSubmit: (values) => {
-      event.preventDefault();
       loginUser &&
         loginUser({ username: values.username, password: values.password });
     },
@@ -59,6 +62,7 @@ export const LoginForm = ({ loginUser }: LoginFormProps) => {
 
   return (
     <LoginFormWrapper>
+      {/* {showError && <ErrorPopup onClick={handleErrorPopup} />} */}
       <Box width={"500px"}>
         <H1 mt={0} textAlign={"center"} fontSize={["24px", "36px"]}>
           Login

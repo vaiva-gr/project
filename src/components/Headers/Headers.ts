@@ -28,7 +28,7 @@ H1.defaultProps = {
   fontWeight: 400,
 };
 
-export const H1H = styled.h1<StyledWrapperProps>`
+export const P = styled.p<StyledWrapperProps>`
   ${space}
   ${width}
   ${fontFamily}
@@ -38,24 +38,8 @@ export const H1H = styled.h1<StyledWrapperProps>`
   ${textAlign}
 `;
 
-H1H.defaultProps = {
-  ...H1.defaultProps,
-  color: "blue",
-};
-
-export const H2 = styled.h2<StyledWrapperProps>`
-  ${space}
-  ${width}
-  ${fontFamily}
-  ${fontSize}
-  ${fontWeight}
-  ${color}
-  ${textAlign}
-`;
-
-H2.defaultProps = {
-  ...H1.defaultProps,
+P.defaultProps = {
   mt: 0,
   mb: 0,
-  fontSize: 4,
+  fontSize: 2,
 };

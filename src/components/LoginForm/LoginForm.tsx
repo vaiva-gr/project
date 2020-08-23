@@ -3,9 +3,10 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import styled from "styled-components";
 
+import { device } from "../../device";
 import { Button } from "../Button/Button";
 import { H1 } from "../Headers/Headers";
-import { device } from "../../device";
+import { Box } from "../Box/Box";
 
 interface LoginFormProps {
   loginUser?: (userData: { username: string; password: string }) => void;
@@ -14,18 +15,6 @@ interface LoginFormProps {
 const LoginFormWrapper = styled.div`
   display: flex;
   justify-content: center;
-`;
-
-const FormWrapper = styled.div`
-  background-color: white;
-  padding: 60px 40px;
-  border-radius: 5px;
-  width: 500px;
-  box-shadow: 0px 0px 76px 14px rgba(0, 0, 0, 0.4);
-
-  @media ${device.mobile} {
-    padding: 40px 20px;
-  }
 `;
 
 const Form = styled.form`
@@ -70,7 +59,7 @@ export const LoginForm = ({ loginUser }: LoginFormProps) => {
 
   return (
     <LoginFormWrapper>
-      <FormWrapper>
+      <Box width={"500px"}>
         <H1 mt={0} textAlign={"center"} fontSize={["24px", "36px"]}>
           Login
         </H1>
@@ -105,7 +94,7 @@ export const LoginForm = ({ loginUser }: LoginFormProps) => {
           </Error>
           <Button type="submit">Submit</Button>
         </Form>
-      </FormWrapper>
+      </Box>
     </LoginFormWrapper>
   );
 };

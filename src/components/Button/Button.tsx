@@ -1,10 +1,14 @@
 import * as React from "react";
 import styled from "styled-components";
+import { space } from "styled-system";
 
-interface ButtonProps {
+import { StyledWrapperProps } from "../Wrapper/StyledWrapper";
+
+interface ButtonProps extends StyledWrapperProps {
   children: React.ReactNode;
   type?: "button" | "submit" | "reset";
   width?: string;
+  onClick?: () => void;
 }
 
 const ButtonWrapper = styled.button<Partial<ButtonProps>>`
@@ -19,10 +23,17 @@ const ButtonWrapper = styled.button<Partial<ButtonProps>>`
   cursor: pointer;
   text-transform: uppercase;
   width: ${({ width }: Partial<ButtonProps>) => (width ? width : "100%")};
+  ${space}
 `;
 
-export const Button = ({ children, type, width }: ButtonProps) => (
-  <ButtonWrapper type={type} width={width}>
+export const Button = ({
+  children,
+  type,
+  width,
+  onClick,
+  ...rest
+}: ButtonProps) => (
+  <ButtonWrapper type={type} width={width} onClick={onClick} {...rest}>
     {children}
   </ButtonWrapper>
 );

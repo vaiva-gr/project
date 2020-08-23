@@ -16,13 +16,13 @@ const DropDownContainer = styled("div")`
 
 const DropDownList = styled("ul")`
   padding: 0;
-  margin: 0;
   width: 150px;
   background: rgb(57, 69, 122);
   border-radius: 4px;
   box-sizing: border-box;
   color: white;
   position: absolute;
+  margin: 10px 0 0 -50px;
 `;
 
 const ListItem = styled("li")`

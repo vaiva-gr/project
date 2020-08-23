@@ -6,6 +6,7 @@ import { H1, P } from "../Headers/Headers";
 import { Box } from "../Box/Box";
 import { Button } from "../Button/Button";
 import { Dropdown } from "../Dropdown/Dropdown";
+import { device } from "../../device";
 
 interface TableProps {
   logoutUser: () => void;
@@ -16,9 +17,23 @@ interface TableProps {
 }
 
 const Grid = styled.div`
-  display: grid;
-  grid-template-columns: 250px auto;
-  grid-column-gap: 20px;
+  display: flex;
+  > :first-child {
+    min-width: 250px;
+    margin-right: 20px;
+  }
+  > :nth-child(2) {
+    width: 100%;
+  }
+
+  @media ${device.mobile} {
+    flex-direction: column-reverse;
+
+    > :first-child {
+      margin-top: 40px;
+      margin-right: 0;
+    }
+  }
 `;
 
 const Row = styled.div`
@@ -29,16 +44,26 @@ const Row = styled.div`
   :not(:last-child) {
     border-bottom: solid #a6a6a6 1px;
   }
+
+  @media ${device.mobile} {
+    grid-template-columns: 3fr 2fr;
+  }
 `;
 
 const RowButton = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 10px 0;
+  margin-bottom: 20px;
 
   > * {
     display: flex;
     align-items: center;
+  }
+
+  @media ${device.mobile} {
+    margin-bottom: 10px;
+    grid-template-columns: 3fr 2fr;
   }
 `;
 
@@ -80,16 +105,20 @@ export const Table = ({
           {servers.servers ? (
             <RowButton>
               <div>
-                Country
+                <P fontSize={["14px", "18px"]} fontWeight={600}>
+                  Country
+                </P>
                 <Dropdown
                   onClickAsc={() => updateServers(servers.servers, "AscName")}
                   onClickDesc={() => updateServers(servers.servers, "DescName")}
-                  ascTitle={"name asc"}
-                  descTitle={"name des"}
+                  ascTitle={"Ascending"}
+                  descTitle={"Descending"}
                 />
               </div>
               <div>
-                Distance
+                <P fontSize={["14px", "18px"]} fontWeight={600}>
+                  Distance
+                </P>
                 <Dropdown
                   onClickAsc={() =>
                     updateServers(servers.servers, "AscDistance")
@@ -97,17 +126,17 @@ export const Table = ({
                   onClickDesc={() =>
                     updateServers(servers.servers, "DescDistance")
                   }
-                  ascTitle={"distance asc"}
-                  descTitle={"distance des"}
+                  ascTitle={"Ascending"}
+                  descTitle={"Descending"}
                 />
               </div>
             </RowButton>
           ) : (
             <>
-              <H1 textAlign={"center"} mt={0}>
+              <H1 textAlign={"center"} mt={0} fontSize={["24px", "36px"]}>
                 Welcome
               </H1>
-              <P textAlign={"center"}>
+              <P textAlign={"center"} fontSize={["14px", "16px"]}>
                 To access server please press GET COUNTRIES
               </P>
             </>
@@ -117,8 +146,8 @@ export const Table = ({
             Object.keys(servers.servers).length !== 0 &&
             servers.servers.map((item): any => (
               <Row key={item.name + item.distance}>
-                <div>{item.name}</div>
-                <div>{item.distance}</div>
+                <P fontSize={["12px", "14px"]}>{item.name}</P>
+                <P fontSize={["12px", "14px"]}>{item.distance}</P>
               </Row>
             ))}
         </div>

@@ -23,6 +23,9 @@ const ButtonWrapper = styled.button<Partial<ButtonProps>>`
   cursor: pointer;
   text-transform: uppercase;
   width: ${({ width }: Partial<ButtonProps>) => (width ? width : "100%")};
+  :hover {
+    background: rgb(94, 109, 172);
+  }
   ${space}
 `;
 

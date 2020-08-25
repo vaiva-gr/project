@@ -7,8 +7,10 @@ import { Button } from "../Button/Button";
 import { H1 } from "../Text/Text";
 import { Box } from "../Box/Box";
 import { ErrorPopup } from "../ErrorPopup/ErrorPopup";
+import { LoadingPopup } from "../LoadingPopup/LoadingPopup";
 
 interface LoginFormProps {
+  user?: any;
   loginUser?: (userData: { username: string; password: string }) => void;
 }
 
@@ -37,9 +39,19 @@ const Error = styled.div`
   margin-top: 5px;
 `;
 
-export const LoginForm = ({ loginUser }: LoginFormProps) => {
-  const [showError, setShowError] = React.useState(true);
+export const LoginForm = ({ user, loginUser }: LoginFormProps) => {
+  const [showError, setShowError] = React.useState(false);
+  const [showLoading, setShowLoading] = React.useState(false);
+
   const handleErrorPopup = () => setShowError(!showError);
+  const handleLoadingPopup = () => setShowLoading(!showLoading);
+
+  React.useEffect(() => {
+    setShowLoading(user.loading);
+  });
+  React.useEffect(() => {
+    user.error && setShowError(true);
+  }, [user.error]);
 
   const formik = useFormik({
     initialValues: {
@@ -62,7 +74,8 @@ export const LoginForm = ({ loginUser }: LoginFormProps) => {
 
   return (
     <LoginFormWrapper>
-      {/* {showError && <ErrorPopup onClick={handleErrorPopup} />} */}
+      {showLoading && <LoadingPopup onClick={handleLoadingPopup} />}
+      {showError && <ErrorPopup onClick={handleErrorPopup} />}
       <Box width={"500px"}>
         <H1 mt={0} textAlign={"center"} fontSize={["24px", "36px"]}>
           Login

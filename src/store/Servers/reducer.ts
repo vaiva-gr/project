@@ -52,11 +52,3 @@ export const reducer: Reducer = (state = [], action) => {
       return state;
   }
 };
-
-// export const selectUpdatedServers = createSelector(
-//   selectServers,
-//   (Servers) =>
-//     Servers.type &&
-//     Servers.type === "Asc" &&
-//     sortBy(prop("name"), Servers.servers)
-// );

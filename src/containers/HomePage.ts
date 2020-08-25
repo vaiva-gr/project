@@ -9,7 +9,9 @@ import {
 } from "../store/Servers/actions";
 import { HomePage } from "../pages/Home/Home";
 import { RootState } from "../store/reducers";
+import { State } from "../store/Servers/reducer";
 import { selectServers } from "../store/Servers/selectors";
+import { ServersType } from "../types/Servers";
 
 const mapStateToProps = createStructuredSelector<RootState, any>({
   servers: selectServers,
@@ -19,7 +21,7 @@ const mapDispatchToProps = (dispatch: any) => ({
   logoutUser: () => dispatch(logoutUser()),
   fetchServers: () => dispatch(fetchServersRequest()),
   deleteServers: () => dispatch(deleteServers()),
-  updateServers: (servers: any, type: string) =>
+  updateServers: (servers: ServersType[], type: string) =>
     dispatch(updateServers(servers, type)),
 });
 

@@ -5,7 +5,7 @@ import { CloseIcon } from "../../assets/icons";
 import { Box } from "../Box/Box";
 import { P } from "../Text/Text";
 
-interface ErrorPopupProps {
+interface LoadingPopupProps {
   onClick: () => void;
 }
 
@@ -33,7 +33,7 @@ const Close = styled.div`
   cursor: pointer;
 `;
 
-export const ErrorPopup = ({ onClick }: ErrorPopupProps) => {
+export const LoadingPopup = ({ onClick }: LoadingPopupProps) => {
   return (
     <ErrorWrapper>
       <BoxWrapper>
@@ -41,7 +41,7 @@ export const ErrorPopup = ({ onClick }: ErrorPopupProps) => {
           <Close onClick={onClick}>
             <CloseIcon />
           </Close>
-          <P>Username or password incorrect</P>
+          <P>LOADING</P>
         </Box>
       </BoxWrapper>
     </ErrorWrapper>

@@ -6,15 +6,23 @@ import { ServersType } from "../../types/Servers";
 
 export interface State {
   servers?: ServersType[];
+  error?: any;
   type?: string;
+  loading?: boolean;
 }
 
-export const reducer: Reducer = (state = [], action) => {
+const initialState = {
+  loading: false,
+};
+
+export const reducer: Reducer = (state = initialState as State, action) => {
   switch (action.type) {
+    case ServersActionTypes.FETCH_SERVERS_REQUEST:
+      return { loading: true };
     case ServersActionTypes.FETCH_SERVERS_SUCCESS:
-      return { servers: action.payload };
+      return { servers: action.payload, loading: false };
     case ServersActionTypes.FETCH_SERVERS_ERROR:
-      return action.payload;
+      return { error: action.payload, loading: false };
     case ServersActionTypes.UPDATE_SERVERS: {
       const desN = R.sortWith([R.descend(R.prop("name"))]);
       const ascN = R.sortWith([R.ascend(R.prop("name"))]);

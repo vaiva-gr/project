@@ -44,7 +44,6 @@ export const LoginForm = ({ user, loginUser }: LoginFormProps) => {
   const [showLoading, setShowLoading] = React.useState(false);
 
   const handleErrorPopup = () => setShowError(!showError);
-  const handleLoadingPopup = () => setShowLoading(!showLoading);
 
   React.useEffect(() => {
     setShowLoading(user.loading);
@@ -74,7 +73,7 @@ export const LoginForm = ({ user, loginUser }: LoginFormProps) => {
 
   return (
     <LoginFormWrapper>
-      {showLoading && <LoadingPopup onClick={handleLoadingPopup} />}
+      {showLoading && <LoadingPopup />}
       {showError && <ErrorPopup onClick={handleErrorPopup} />}
       <Box width={"500px"}>
         <H1 mt={0} textAlign={"center"} fontSize={["24px", "36px"]}>

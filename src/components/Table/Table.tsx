@@ -7,6 +7,7 @@ import { Box } from "../Box/Box";
 import { Button } from "../Button/Button";
 import { Dropdown } from "../Dropdown/Dropdown";
 import { device } from "../../device";
+import { LoadingPopup } from "../LoadingPopup/LoadingPopup";
 
 interface TableProps {
   logoutUser: () => void;
@@ -74,6 +75,14 @@ export const Table = ({
   deleteServers,
   updateServers,
 }: TableProps) => {
+  const [showLoading, setShowLoading] = React.useState(false);
+
+  React.useEffect(() => {
+    setShowLoading(servers.loading);
+  });
+
+  console.log(servers);
+
   const handleClickGet = () => {
     fetchServers && fetchServers();
   };
@@ -87,71 +96,76 @@ export const Table = ({
   };
 
   return (
-    <Box>
-      <Grid>
-        <div>
-          {!servers.servers ? (
-            <Button mb={20} onClick={handleClickGet}>
-              Get countries
-            </Button>
-          ) : (
-            <Button mb={20} onClick={handleClickDelete}>
-              Delete
-            </Button>
-          )}
-          <Button onClick={handleLogoutClick}>LOGOUT</Button>
-        </div>
-        <div>
-          {servers.servers ? (
-            <RowButton>
-              <div>
-                <P fontSize={["14px", "18px"]} fontWeight={600}>
-                  Country
+    <React.Fragment>
+      {showLoading && <LoadingPopup />}
+      <Box>
+        <Grid>
+          <div>
+            {!servers.servers ? (
+              <Button mb={20} onClick={handleClickGet}>
+                Get countries
+              </Button>
+            ) : (
+              <Button mb={20} onClick={handleClickDelete}>
+                Delete
+              </Button>
+            )}
+            <Button onClick={handleLogoutClick}>LOGOUT</Button>
+          </div>
+          <div>
+            {servers.servers ? (
+              <RowButton>
+                <div>
+                  <P fontSize={["14px", "18px"]} fontWeight={600}>
+                    Country
+                  </P>
+                  <Dropdown
+                    onClickAsc={() => updateServers(servers.servers, "AscName")}
+                    onClickDesc={() =>
+                      updateServers(servers.servers, "DescName")
+                    }
+                    ascTitle={"Ascending"}
+                    descTitle={"Descending"}
+                  />
+                </div>
+                <div>
+                  <P fontSize={["14px", "18px"]} fontWeight={600}>
+                    Distance
+                  </P>
+                  <Dropdown
+                    onClickAsc={() =>
+                      updateServers(servers.servers, "AscDistance")
+                    }
+                    onClickDesc={() =>
+                      updateServers(servers.servers, "DescDistance")
+                    }
+                    ascTitle={"Ascending"}
+                    descTitle={"Descending"}
+                  />
+                </div>
+              </RowButton>
+            ) : (
+              <>
+                <H1 textAlign={"center"} mt={0} fontSize={["24px", "36px"]}>
+                  Welcome
+                </H1>
+                <P textAlign={"center"} fontSize={["14px", "16px"]}>
+                  To access server please press GET COUNTRIES
                 </P>
-                <Dropdown
-                  onClickAsc={() => updateServers(servers.servers, "AscName")}
-                  onClickDesc={() => updateServers(servers.servers, "DescName")}
-                  ascTitle={"Ascending"}
-                  descTitle={"Descending"}
-                />
-              </div>
-              <div>
-                <P fontSize={["14px", "18px"]} fontWeight={600}>
-                  Distance
-                </P>
-                <Dropdown
-                  onClickAsc={() =>
-                    updateServers(servers.servers, "AscDistance")
-                  }
-                  onClickDesc={() =>
-                    updateServers(servers.servers, "DescDistance")
-                  }
-                  ascTitle={"Ascending"}
-                  descTitle={"Descending"}
-                />
-              </div>
-            </RowButton>
-          ) : (
-            <>
-              <H1 textAlign={"center"} mt={0} fontSize={["24px", "36px"]}>
-                Welcome
-              </H1>
-              <P textAlign={"center"} fontSize={["14px", "16px"]}>
-                To access server please press GET COUNTRIES
-              </P>
-            </>
-          )}
+              </>
+            )}
 
-          {servers.servers &&
-            Object.keys(servers.servers).length !== 0 &&
-            servers.servers.map((item): any => (
-              <Row key={item.name + item.distance}>
-                <P fontSize={["12px", "14px"]}>{item.name}</P>
-                <P fontSize={["12px", "14px"]}>{item.distance}</P>
-              </Row>
-            ))}
-        </div>
-      </Grid>
-    </Box>
+            {servers.servers &&
+              Object.keys(servers.servers).length !== 0 &&
+              servers.servers.map((item): any => (
+                <Row key={item.name + item.distance}>
+                  <P fontSize={["12px", "14px"]}>{item.name}</P>
+                  <P fontSize={["12px", "14px"]}>{item.distance}</P>
+                </Row>
+              ))}
+          </div>
+        </Grid>
+      </Box>
+    </React.Fragment>
   );
 };

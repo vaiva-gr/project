@@ -1,49 +1,49 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import { CloseIcon } from "../../assets/icons";
-import { Box } from "../Box/Box";
-import { P } from "../Text/Text";
+import { LoadingIcon } from "../../assets/icons";
 
-interface LoadingPopupProps {
-  onClick: () => void;
-}
-
-const ErrorWrapper = styled.div`
+const LoadingWrapper = styled.div`
   position: fixed;
   top: 0;
+  left: 0;
   height: 100vh;
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.6);
 `;
 
-const BoxWrapper = styled.div`
+const LoadingBox = styled.div`
   position: absolute;
-  top: 30%;
-  display: flex;
+  top: 40%;
   width: 100%;
+  display: flex;
   justify-content: center;
-`;
-
-const Close = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
   margin-bottom: 20px;
-  cursor: pointer;
+  animation-name: ckw;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+
+  svg {
+    transform: scale(3);
+    fill: white;
+  }
+
+  @keyframes ckw {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 `;
 
-export const LoadingPopup = ({ onClick }: LoadingPopupProps) => {
+export const LoadingPopup = () => {
   return (
-    <ErrorWrapper>
-      <BoxWrapper>
-        <Box width={"70%"}>
-          <Close onClick={onClick}>
-            <CloseIcon />
-          </Close>
-          <P>LOADING</P>
-        </Box>
-      </BoxWrapper>
-    </ErrorWrapper>
+    <LoadingWrapper>
+      <LoadingBox>
+        <LoadingIcon />
+      </LoadingBox>
+    </LoadingWrapper>
   );
 };

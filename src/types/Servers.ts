@@ -5,4 +5,5 @@ export type ServersType = {
 
 export type ServersArray = {
   servers: ServersType[];
+  loading: boolean;
 };

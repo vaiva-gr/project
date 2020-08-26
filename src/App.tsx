@@ -1,6 +1,16 @@
 import * as React from "react";
-export interface HelloWorldProps {
-  userName: string;
-  lang: string;
-}
-export const App = () => <h1>Hi from React!! Welcome!</h1>;
+import { ThemeProvider } from "styled-components";
+import { Provider } from "react-redux";
+
+import { GlobalStyles } from "./globalStyles";
+import { RoutesConnected as Routes } from "./Routes";
+import { configureStore } from "./store/store";
+
+const { store } = configureStore();
+
+export const App = () => (
+  <Provider store={store}>
+    <GlobalStyles />
+    <Routes />
+  </Provider>
+);

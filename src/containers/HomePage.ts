@@ -9,7 +9,6 @@ import {
 } from "../store/Servers/actions";
 import { HomePage } from "../pages/Home/Home";
 import { RootState } from "../store/reducers";
-import { State } from "../store/Servers/reducer";
 import { selectServers } from "../store/Servers/selectors";
 import { ServersType } from "../types/Servers";
 

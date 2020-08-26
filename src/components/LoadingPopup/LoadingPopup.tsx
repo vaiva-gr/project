@@ -19,7 +19,7 @@ const LoadingBox = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-  animation-name: ckw;
+  animation-name: spinner;
   animation-duration: 2s;
   animation-iteration-count: infinite;
 
@@ -28,7 +28,7 @@ const LoadingBox = styled.div`
     fill: white;
   }
 
-  @keyframes ckw {
+  @keyframes spinner {
     0% {
       transform: rotate(0deg);
     }

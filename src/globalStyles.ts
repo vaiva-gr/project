@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-// import { colors } from './theme/colors';
 
 export const GlobalStyles = createGlobalStyle`
   html, body {
@@ -22,13 +21,12 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: 400;
     padding: 0;
     margin: 0;
-    font-size: 1.4rem; /* =14px */
-    line-height: 1.42857; /* ~20px */
+    font-size: 14px;
+    line-height: 20px;
   }
 
   #root {
     height: 100%;
   }
 
-  
  `;

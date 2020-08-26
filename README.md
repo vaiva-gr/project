@@ -1,10 +1,23 @@
-# project
+### `npm start`
+
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.<br />
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.<br />
+
+# Project
 
 Explicit Requirements
 ● Create a server explorer web app:
-○ Implement login (POST http://playground.tesonet.lt/v1/tokens { username: "tesonet", password: "partyanimal" })
-○ Display servers list - GET http://playground.tesonet.lt/v1/servers
-○ Make servers list sortable by name / distance
+(Implement login (POST http://playground.tesonet.lt/v1/tokens { username: "tesonet", password: "partyanimal" });
+Display servers list - GET http://playground.tesonet.lt/v1/servers;
+Make servers list sortable by name / distance)
 ● App must work on all modern browsers + IE11
 
 Implicit Requirements

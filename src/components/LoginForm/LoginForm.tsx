@@ -8,10 +8,11 @@ import { H1 } from "../Text/Text";
 import { Box } from "../Box/Box";
 import { ErrorPopup } from "../ErrorPopup/ErrorPopup";
 import { LoadingPopup } from "../LoadingPopup/LoadingPopup";
+import { UserType } from "../../types/User";
 
 interface LoginFormProps {
-  user?: any;
-  loginUser?: (userData: { username: string; password: string }) => void;
+  user: UserType;
+  loginUser: (userData: { username: string; password: string }) => void;
 }
 
 const LoginFormWrapper = styled.div`

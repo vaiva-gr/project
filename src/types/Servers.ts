@@ -1,6 +1,6 @@
 export type ServersType = {
   name: string;
-  distance: string;
+  distance: number;
 };
 
 export type ServersArray = {

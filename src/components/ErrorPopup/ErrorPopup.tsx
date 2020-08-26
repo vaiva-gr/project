@@ -26,7 +26,7 @@ const BoxWrapper = styled.div`
   justify-content: center;
 `;
 
-const Close = styled.div`
+export const Close = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;

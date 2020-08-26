@@ -2,9 +2,10 @@ import * as React from "react";
 
 import { LoginForm } from "../../components/LoginForm/LoginForm";
 import { Layout } from "../../components/Layout/Layout";
+import { UserType } from "../../types/User";
 
 interface LoginPageProps {
-  user: any;
+  user: UserType;
   loginUser?: (userData: { username: string; password: string }) => void;
 }
 

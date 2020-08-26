@@ -81,8 +81,6 @@ export const Table = ({
     setShowLoading(servers.loading);
   });
 
-  console.log(servers);
-
   const handleClickGet = () => {
     fetchServers && fetchServers();
   };
@@ -157,12 +155,14 @@ export const Table = ({
 
             {servers.servers &&
               Object.keys(servers.servers).length !== 0 &&
-              servers.servers.map((item): any => (
-                <Row key={item.name + item.distance}>
-                  <P fontSize={["12px", "14px"]}>{item.name}</P>
-                  <P fontSize={["12px", "14px"]}>{item.distance}</P>
-                </Row>
-              ))}
+              servers.servers.map(
+                (item): Object => (
+                  <Row key={item.name + item.distance}>
+                    <P fontSize={["12px", "14px"]}>{item.name}</P>
+                    <P fontSize={["12px", "14px"]}>{item.distance}</P>
+                  </Row>
+                )
+              )}
           </div>
         </Grid>
       </Box>

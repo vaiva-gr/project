@@ -82,7 +82,7 @@ export const Table = ({
   });
 
   const handleClickGet = () => {
-    fetchServers && fetchServers();
+    fetchServers();
   };
 
   const handleClickDelete = () => {

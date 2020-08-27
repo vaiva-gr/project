@@ -3,6 +3,7 @@ import { shallow, mount } from "enzyme";
 
 import { Table } from "../components/Table/Table";
 import { Servers } from "../assets/_mocks_/servers";
+import { Button } from "../components/Button/Button";
 
 describe("components/Table", () => {
   const props = {

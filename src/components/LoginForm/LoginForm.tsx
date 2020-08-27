@@ -20,7 +20,7 @@ const LoginFormWrapper = styled.div`
   justify-content: center;
 `;
 
-const Form = styled.form`
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
 `;

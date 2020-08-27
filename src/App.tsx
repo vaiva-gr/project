@@ -1,5 +1,4 @@
 import * as React from "react";
-import { ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";
 
 import { GlobalStyles } from "./globalStyles";

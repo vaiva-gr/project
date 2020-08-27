@@ -36,12 +36,12 @@ const ListItem = styled("li")`
   }
 `;
 
-const ArrowWrapper = styled.div<any>`
+export const ArrowWrapper = styled.div<{ isOpen: boolean }>`
   margin: 0 10px;
   display: flex;
   svg {
     padding: 5px;
-    transform: ${({ isOpen }: any) => isOpen && "rotate(180deg)"};
+    transform: ${({ isOpen }) => isOpen && "rotate(180deg)"};
   }
 `;
 

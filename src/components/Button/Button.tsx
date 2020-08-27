@@ -12,7 +12,7 @@ interface ButtonProps extends StyledWrapperProps {
   onClick?: () => void;
 }
 
-const ButtonWrapper = styled.button<Partial<ButtonProps>>`
+export const ButtonWrapper = styled.button<Partial<ButtonProps>>`
   width: 100%;
   background-color: ${colors.darkBlue};
   height: 40px;

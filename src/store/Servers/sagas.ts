@@ -4,16 +4,13 @@ import axios from "axios";
 import { ServersActionTypes } from "./types";
 import { fetchServersSuccess, fetchServersError } from "./actions";
 import { getAuthHeader } from "../../utils/user";
+import { API_SERVERS_URL } from "../../constants/api";
 
 function* fetchServersSaga() {
   const Auth = getAuthHeader(window.localStorage.getItem("token"));
 
   try {
-    const { data } = yield call(
-      axios.get,
-      `https://playground.tesonet.lt/v1/servers`,
-      Auth
-    );
+    const { data } = yield call(axios.get, API_SERVERS_URL, Auth);
     yield put(fetchServersSuccess(data));
   } catch (e) {
     yield put(fetchServersError(e));
